@@ -11,4 +11,12 @@
     <bean id="cacheFileLogger" class="core.loggers.CacheFileLogger" destroy-method="destroy" parent="fileEventLogger">
         <constructor-arg value="5"/>
     </bean>
+    <bean id="combinedEventLogger" class="core.loggers.CombinedEventLogger">
+        <constructor-arg>
+            <list>
+                <ref bean="consoleEventLogger"/>
+                <ref bean="fileEventLogger"/>
+            </list>
+        </constructor-arg>
+    </bean>
 </beans>
